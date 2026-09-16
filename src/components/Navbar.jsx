@@ -4,58 +4,25 @@ import { Film, Heart } from 'lucide-react';
 
 export const Navbar = ({ favoritesCount = 0 }) => {
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        backgroundColor: 'rgba(12, 15, 20, 0.92)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        padding: '16px 24px',
-        marginBottom: '24px',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1380px',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        {/* लोगो (Underline Removed + A11y Optimized) */}
-        <NavLink
-          to="/"
-          aria-label="Cine-Stream Home"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            textDecoration: 'none',
-            color: '#fff',
-          }}
-        >
-          <Film size={26} color="#e50914" />
-          <span style={{ fontSize: '1.3rem', fontWeight: 800, letterSpacing: '0.5px' }}>
+    <header className="navbar-header">
+      <div className="navbar-container">
+        {/* लोगो (Underline Removed + A11y) */}
+        <NavLink to="/" className="navbar-logo" aria-label="Cine-Stream Home">
+          <Film size={22} color="#e50914" />
+          <span className="navbar-logo-text">
             CINE<span style={{ color: '#e50914' }}>STREAM</span>
           </span>
         </NavLink>
 
-        {/* नेविगेशन लिंक्स (Underline Removed + A11y Optimized) */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        {/* नेविगेशन लिंक्स (Mobile me bhi hamesha visible) */}
+        <nav className="navbar-nav">
           <NavLink
             to="/"
             end
             aria-label="Discover Movies"
+            className="nav-link-item"
             style={({ isActive }) => ({
-              padding: '6px 14px',
-              borderRadius: '9999px',
-              fontSize: '0.92rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              backgroundColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+              backgroundColor: isActive ? 'rgba(255, 255, 255, 0.12)' : 'transparent',
               color: isActive ? '#fff' : '#94a3b8',
             })}
           >
@@ -65,30 +32,24 @@ export const Navbar = ({ favoritesCount = 0 }) => {
           <NavLink
             to="/favorites"
             aria-label="Favorite Movies"
+            className="nav-link-item"
             style={({ isActive }) => ({
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '6px 14px',
-              borderRadius: '9999px',
-              fontSize: '0.92rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              backgroundColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+              backgroundColor: isActive ? 'rgba(255, 255, 255, 0.12)' : 'transparent',
               color: isActive ? '#fff' : '#94a3b8',
             })}
           >
-            <Heart size={16} color="#e50914" fill={favoritesCount > 0 ? '#e50914' : 'none'} />
+            <Heart size={15} color="#e50914" fill={favoritesCount > 0 ? '#e50914' : 'none'} />
             <span>Favorites</span>
             {favoritesCount > 0 && (
               <span
                 style={{
                   backgroundColor: '#e50914',
                   color: '#fff',
-                  fontSize: '0.72rem',
+                  fontSize: '0.7rem',
                   fontWeight: 700,
-                  padding: '2px 7px',
+                  padding: '1px 6px',
                   borderRadius: '9999px',
+                  marginLeft: '2px',
                 }}
               >
                 {favoritesCount}

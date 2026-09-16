@@ -1,9 +1,14 @@
 import React from 'react';
 import { Search, X } from 'lucide-react';
 
-export const SearchBar = ({ value, onChange, onClear, placeholder = 'Search movies (e.g. Batman, Inception)...' }) => {
+export const SearchBar = ({ 
+  value, 
+  onChange, 
+  onClear, 
+  placeholder = 'Search movies (e.g. Batman)...' 
+}) => {
   return (
-    <div style={{ maxWidth: '650px', margin: '0 auto 32px' }}>
+    <div style={{ maxWidth: '650px', margin: '0 auto 32px', width: '100%' }}>
       <div
         style={{
           position: 'relative',
@@ -12,22 +17,26 @@ export const SearchBar = ({ value, onChange, onClear, placeholder = 'Search movi
           backgroundColor: '#141922',
           border: '1px solid rgba(255, 255, 255, 0.1)',
           borderRadius: '9999px',
-          padding: '8px 20px',
+          padding: '8px 12px', /* <-- 20px se 12px kiya taaki mobile me text bahar na nikle */
         }}
       >
-        <Search size={20} color="#94a3b8" style={{ marginRight: '12px' }} />
+        <Search size={18} color="#94a3b8" style={{ marginRight: '8px', flexShrink: 0 }} />
 
         <input
           type="text"
+          id="movie-search-input"
+          name="search"
+          aria-label="Search movies or TV shows"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           style={{
             flex: 1,
+            minWidth: 0, /* <-- Yeh Flexbox overflow ko rokta hai */
             background: 'transparent',
             border: 'none',
             color: '#fff',
-            fontSize: '1rem',
+            fontSize: '0.92rem',
             outline: 'none',
           }}
         />
@@ -36,6 +45,7 @@ export const SearchBar = ({ value, onChange, onClear, placeholder = 'Search movi
           <button
             type="button"
             onClick={onClear}
+            aria-label="Clear search input"
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
               border: 'none',
@@ -47,6 +57,8 @@ export const SearchBar = ({ value, onChange, onClear, placeholder = 'Search movi
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
+              flexShrink: 0,
+              marginLeft: '6px',
             }}
           >
             <X size={14} />
