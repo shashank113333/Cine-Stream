@@ -1,4 +1,3 @@
-import React from 'react';
 import { Search, X } from 'lucide-react';
 
 export const SearchBar = ({ 
@@ -17,7 +16,7 @@ export const SearchBar = ({
           backgroundColor: '#141922',
           border: '1px solid rgba(255, 255, 255, 0.1)',
           borderRadius: '9999px',
-          padding: '8px 12px', /* <-- 20px se 12px kiya taaki mobile me text bahar na nikle */
+          padding: '8px 12px',
         }}
       >
         <Search size={18} color="#94a3b8" style={{ marginRight: '8px', flexShrink: 0 }} />
@@ -32,7 +31,7 @@ export const SearchBar = ({
           placeholder={placeholder}
           style={{
             flex: 1,
-            minWidth: 0, /* <-- Yeh Flexbox overflow ko rokta hai */
+            minWidth: 0, 
             background: 'transparent',
             border: 'none',
             color: '#fff',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Sparkles, Loader2, Film } from 'lucide-react';
 import { getMovieFromMood } from '../api/gemini';
 
@@ -22,11 +22,8 @@ export const MoodMatcher = ({ onMovieDiscovered }) => {
     setLastSuggested(null);
 
     try {
-      // 1. Gemini API को मूड भेजो और फ़िल्म का नाम पाओ (Phase 3 Logic)
       const movieTitle = await getMovieFromMood(moodInput.trim());
       setLastSuggested(movieTitle);
-
-      // 2. The Handoff: फ़िल्म का नाम चुपचाप TMDB सर्च को सौंप दो!
       if (onMovieDiscovered) {
         onMovieDiscovered(movieTitle);
       }
@@ -49,7 +46,7 @@ export const MoodMatcher = ({ onMovieDiscovered }) => {
         boxShadow: '0 8px 30px rgba(139, 92, 246, 0.15)',
       }}
     >
-      {/* हेडर */}
+
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
         <div
           style={{
@@ -73,7 +70,7 @@ export const MoodMatcher = ({ onMovieDiscovered }) => {
         </div>
       </div>
 
-      {/* फॉर्म इनपुट */}
+
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', marginBottom: '16px' }}>
         <input
           type="text"
@@ -124,7 +121,7 @@ export const MoodMatcher = ({ onMovieDiscovered }) => {
         </button>
       </form>
 
-      {/* Quick Prompt Chips */}
+  
       <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
         <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>Try asking:</span>
         {EXAMPLE_MOODS.map((pill, i) => (
@@ -147,7 +144,7 @@ export const MoodMatcher = ({ onMovieDiscovered }) => {
         ))}
       </div>
 
-      {/* रिजल्ट स्टेटस (सर के लिए एकदम प्रोफेशनल Curation टेक्स्ट) */}
+    
       {lastSuggested && (
         <div
           style={{

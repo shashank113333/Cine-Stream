@@ -1,4 +1,3 @@
-import React from 'react';
 import { MovieCard } from './MovieCard';
 import { Film } from 'lucide-react';
 
@@ -9,7 +8,7 @@ export const MovieGrid = ({
   onToggleFavorite,
   emptyMessage = 'No movies found.',
 }) => {
-  // अगर कोई मूवी नहीं मिली (Empty State)
+
   if (!isLoading && movies.length === 0) {
     return (
       <div className="empty-grid-state">

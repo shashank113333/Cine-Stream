@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Film, Heart } from 'lucide-react';
 
@@ -6,7 +5,7 @@ export const Navbar = ({ favoritesCount = 0 }) => {
   return (
     <header className="navbar-header">
       <div className="navbar-container">
-        {/* लोगो (Underline Removed + A11y) */}
+
         <NavLink to="/" className="navbar-logo" aria-label="Cine-Stream Home">
           <Film size={22} color="#e50914" />
           <span className="navbar-logo-text">
@@ -14,7 +13,6 @@ export const Navbar = ({ favoritesCount = 0 }) => {
           </span>
         </NavLink>
 
-        {/* नेविगेशन लिंक्स (Mobile me bhi hamesha visible) */}
         <nav className="navbar-nav">
           <NavLink
             to="/"

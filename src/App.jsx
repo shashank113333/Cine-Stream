@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
@@ -10,10 +9,8 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* 1. शुद्ध नेटफ्लिक्स स्टाइल Navbar */}
       <Navbar favoritesCount={favoritesCount} />
 
-      {/* 2. मुख्य पेजेस (Routing) */}
       <div style={{ flex: 1 }}>
         <Routes>
           <Route
@@ -39,7 +36,6 @@ export default function App() {
         </Routes>
       </div>
 
-      {/* 3. प्रोफेशनल डेवलपर फ़ूटर (Cine-Stream + Shashank Credit) */}
       <footer
         style={{
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',

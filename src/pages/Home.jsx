@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState } from 'react';
 import { fetchPopularMovies, searchMovies } from '../api/tmdb';
 import { MovieGrid } from '../components/MovieGrid';
 import { SearchBar } from '../components/SearchBar';
 import { MoodMatcher } from '../components/MoodMatcher';
 import { useDebounce } from '../hooks/useDebounce';
 import { Loader2, Sparkles, Compass } from 'lucide-react';
+
 export const Home = ({ isFavorite, onToggleFavorite }) => {
-  // टैब स्विच: 'search' या 'ai-mood'
   const [activeMode, setActiveMode] = useState('search');
 
   const [movies, setMovies] = useState([]);
@@ -50,11 +50,9 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
   }, [debouncedSearchTerm]);
 
   useEffect(() => {
-    setPage(1);
     loadData(1, false);
-  }, [debouncedSearchTerm, loadData]);
+  }, [loadData]);
 
-  // Infinite Scroll Observer
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
@@ -75,14 +73,12 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
     };
   }, [loading, loadingMore, page, totalPages, loadData]);
 
-  // Phase 3 Requirement: The Handoff (AI से मिला नाम TMDB Search को सौंपना)
   const handleMovieDiscovered = (movieTitle) => {
     setSearchTerm(movieTitle);
   };
 
   return (
     <div className="main-viewport">
-      {/* मोड स्विचर बटन (Discover Search vs AI Mood Matcher) */}
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '24px' }}>
         <button
           type="button"
@@ -127,7 +123,6 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
         </button>
       </div>
 
-      {/* मोड के हिसाब से कंपोनेंट दिखाना */}
       {activeMode === 'ai-mood' ? (
         <MoodMatcher onMovieDiscovered={handleMovieDiscovered} />
       ) : (
@@ -138,7 +133,6 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
         />
       )}
 
-      {/* हेडिंग और काउंट */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '20px' }}>
         <h2 style={{ fontSize: '1.3rem' }}>
           {debouncedSearchTerm.trim()
@@ -150,7 +144,6 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
         </span>
       </div>
 
-      {/* मूवी ग्रिड */}
       <MovieGrid
         movies={movies}
         isLoading={loading}
@@ -158,7 +151,6 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
         onToggleFavorite={onToggleFavorite}
       />
 
-      {/* Infinite Scroll Sentinel */}
       <div ref={sentinelRef} style={{ padding: '30px 0', textAlign: 'center' }}>
         {loadingMore && (
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#94a3b8' }}>

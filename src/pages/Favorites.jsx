@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { MovieGrid } from '../components/MovieGrid';
 import { Heart, Compass } from 'lucide-react';
@@ -6,7 +5,7 @@ import { Heart, Compass } from 'lucide-react';
 export const Favorites = ({ favorites, onToggleFavorite, isFavorite }) => {
   return (
     <div className="main-viewport">
-      {/* पेज हेडिंग */}
+
       <div style={{ marginBottom: '28px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Heart size={26} color="#e50914" fill="#e50914" />
@@ -17,7 +16,6 @@ export const Favorites = ({ favorites, onToggleFavorite, isFavorite }) => {
         </p>
       </div>
 
-      {/* अगर वॉचलिस्ट खाली है */}
       {favorites.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px 20px', background: '#141922', borderRadius: '12px' }}>
           <Heart size={48} color="#64748b" style={{ marginBottom: '14px' }} />
@@ -44,7 +42,6 @@ export const Favorites = ({ favorites, onToggleFavorite, isFavorite }) => {
           </NavLink>
         </div>
       ) : (
-        /* अगर फ़िल्में हैं, तो उन्हें ग्रिड में दिखाओ */
         <MovieGrid
           movies={favorites}
           isLoading={false}
