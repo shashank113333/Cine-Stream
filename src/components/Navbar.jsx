@@ -25,24 +25,36 @@ export const Navbar = ({ favoritesCount = 0 }) => {
           justifyContent: 'space-between',
         }}
       >
-        {/* लोगो */}
-        <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* लोगो (Underline Removed + A11y Optimized) */}
+        <NavLink
+          to="/"
+          aria-label="Cine-Stream Home"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            textDecoration: 'none',
+            color: '#fff',
+          }}
+        >
           <Film size={26} color="#e50914" />
           <span style={{ fontSize: '1.3rem', fontWeight: 800, letterSpacing: '0.5px' }}>
             CINE<span style={{ color: '#e50914' }}>STREAM</span>
           </span>
         </NavLink>
 
-        {/* नेविगेशन लिंक्स */}
+        {/* नेविगेशन लिंक्स (Underline Removed + A11y Optimized) */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <NavLink
             to="/"
             end
+            aria-label="Discover Movies"
             style={({ isActive }) => ({
               padding: '6px 14px',
               borderRadius: '9999px',
               fontSize: '0.92rem',
               fontWeight: 600,
+              textDecoration: 'none',
               backgroundColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
               color: isActive ? '#fff' : '#94a3b8',
             })}
@@ -52,6 +64,7 @@ export const Navbar = ({ favoritesCount = 0 }) => {
 
           <NavLink
             to="/favorites"
+            aria-label="Favorite Movies"
             style={({ isActive }) => ({
               display: 'flex',
               alignItems: 'center',
@@ -60,6 +73,7 @@ export const Navbar = ({ favoritesCount = 0 }) => {
               borderRadius: '9999px',
               fontSize: '0.92rem',
               fontWeight: 600,
+              textDecoration: 'none',
               backgroundColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
               color: isActive ? '#fff' : '#94a3b8',
             })}
