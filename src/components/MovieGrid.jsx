@@ -9,6 +9,23 @@ export const MovieGrid = ({
   emptyMessage = 'No movies found.',
 }) => {
 
+  // जब पहली बार डेटा लोड हो रहा हो (CLS = 0 करने के लिए Skeleton Cards)
+  if (isLoading && movies.length === 0) {
+    return (
+      <div className="movie-grid" aria-busy="true" aria-label="Loading movies">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="movie-card skeleton-card">
+            <div className="poster-container skeleton-poster" />
+            <div className="movie-info">
+              <div className="skeleton-line" style={{ width: '75%', height: '16px', marginBottom: '10px' }} />
+              <div className="skeleton-line" style={{ width: '45%', height: '12px' }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   if (!isLoading && movies.length === 0) {
     return (
       <div className="empty-grid-state">

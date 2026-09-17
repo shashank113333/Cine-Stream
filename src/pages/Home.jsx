@@ -139,7 +139,7 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
             ? `Results for "${debouncedSearchTerm}"`
             : 'Trending & Popular Movies'}
         </h2>
-        <span style={{ color: '#64748b', fontSize: '0.85rem' }}>
+        <span style={{ color: '#cbd5e1', fontSize: '0.85rem' }}>
           Loaded: {movies.length} movies
         </span>
       </div>

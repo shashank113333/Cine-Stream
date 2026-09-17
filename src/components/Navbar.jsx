@@ -9,7 +9,7 @@ export const Navbar = ({ favoritesCount = 0 }) => {
         <NavLink to="/" className="navbar-logo" aria-label="Cine-Stream Home">
           <Film size={22} color="#e50914" />
           <span className="navbar-logo-text">
-            CINE<span style={{ color: '#e50914' }}>STREAM</span>
+            CINE<span style={{ color: '#ff4d4f' }}>STREAM</span>
           </span>
         </NavLink>
 

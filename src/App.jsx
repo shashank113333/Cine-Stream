@@ -11,7 +11,8 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar favoritesCount={favoritesCount} />
 
-      <div style={{ flex: 1 }}>
+      {/* 2. मुख्य पेजेस (Accessibility: main landmark) */}
+      <main style={{ flex: 1 }}>
         <Routes>
           <Route
             path="/"
@@ -34,8 +35,9 @@ export default function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </div>
+      </main>
 
+      {/* 3. डेवलपर फ़ूटर (Contrast Enhanced) */}
       <footer
         style={{
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',
@@ -46,12 +48,12 @@ export default function App() {
         }}
       >
         <p style={{ fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.5px', marginBottom: '6px' }}>
-          CINE<span style={{ color: '#e50914' }}>STREAM</span> — Media Discovery SPA
+          CINE<span style={{ color: '#ff4d4f' }}>STREAM</span> — Media Discovery SPA
         </p>
-        <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '4px' }}>
+        <p style={{ color: '#e2e8f0', fontSize: '0.85rem', marginBottom: '4px' }}>
           Engineered with ❤️ by <strong>Shashank</strong> • Sprint 08 Deliverable
         </p>
-        <p style={{ color: '#64748b', fontSize: '0.78rem' }}>
+        <p style={{ color: '#94a3b8', fontSize: '0.82rem' }}>
           Optimized with IntersectionObserver Infinite Scroll, 500ms Debouncing & Gemini AI
         </p>
       </footer>
