@@ -9,7 +9,6 @@ export const MovieGrid = ({
   emptyMessage = 'No movies found.',
 }) => {
 
-  // जब पहली बार डेटा लोड हो रहा हो (CLS = 0 करने के लिए Skeleton Cards)
   if (isLoading && movies.length === 0) {
     return (
       <div className="movie-grid" aria-busy="true" aria-label="Loading movies">

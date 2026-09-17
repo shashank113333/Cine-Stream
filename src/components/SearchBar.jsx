@@ -1,5 +1,4 @@
 import { Search, X } from 'lucide-react';
-
 export const SearchBar = ({ 
   value, 
   onChange, 

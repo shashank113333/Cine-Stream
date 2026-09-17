@@ -224,7 +224,6 @@ body {
   font-weight: 700;
 }
 
-/* EMPTY STATE */
 .empty-grid-state {
   text-align: center;
   padding: 60px 20px;
@@ -325,7 +324,6 @@ body {
   }
 }
 
-/* SKELETON LOADING (Zero Layout Shift CLS) */
 .skeleton-card {
   animation: pulse-glow 1.5s infinite ease-in-out;
   border-color: rgba(255, 255, 255, 0.05);

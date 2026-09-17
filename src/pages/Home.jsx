@@ -20,8 +20,6 @@ export const Home = ({ isFavorite, onToggleFavorite }) => {
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   const sentinelRef = useRef(null);
-
-  // डेटा फेच करने का फंक्शन
   const loadData = useCallback(async (targetPage, isAppend = false) => {
     if (isAppend) {
       setLoadingMore(true);

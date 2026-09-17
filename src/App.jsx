@@ -11,7 +11,6 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar favoritesCount={favoritesCount} />
 
-      {/* 2. मुख्य पेजेस (Accessibility: main landmark) */}
       <main style={{ flex: 1 }}>
         <Routes>
           <Route
@@ -37,7 +36,6 @@ export default function App() {
         </Routes>
       </main>
 
-      {/* 3. डेवलपर फ़ूटर (Contrast Enhanced) */}
       <footer
         style={{
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',

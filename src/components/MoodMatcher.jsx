@@ -143,7 +143,6 @@ export const MoodMatcher = ({ onMovieDiscovered }) => {
           </button>
         ))}
       </div>
-
     
       {lastSuggested && (
         <div

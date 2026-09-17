@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
-
 const STORAGE_KEY = 'cine_stream_favorites';
-
 export const useFavorites = () => {
-
   const [favorites, setFavorites] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -21,7 +18,6 @@ export const useFavorites = () => {
       console.error('LocalStorage write error:', e);
     }
   }, [favorites]);
-
 
   const toggleFavorite = (movie) => {
     setFavorites((prev) => {

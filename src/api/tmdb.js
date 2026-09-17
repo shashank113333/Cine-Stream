@@ -17,23 +17,28 @@ const formatOmdbMovie = (item) => ({
   vote_average: 8.2, 
 });
 
+const POPULAR_TOPICS = ['Marvel', 'Batman', 'Avengers', 'Spider-Man', 'Action', 'Star Wars', 'Mission'];
+
 export const fetchPopularMovies = async (page = 1) => {
   try {
+    const topicIndex = Math.floor((page - 1) / 4) % POPULAR_TOPICS.length;
+    const topic = POPULAR_TOPICS[topicIndex];
+    const subPage = ((page - 1) % 4) + 1;
+
     const response = await axios.get(OMDB_BASE_URL, {
       params: {
         apikey: OMDB_API_KEY,
-        s: 'Marvel', 
-        page,
+        s: topic,
+        page: subPage,
         type: 'movie',
       },
     });
 
     if (response.data && response.data.Search) {
-      const total = parseInt(response.data.totalResults, 10) || 10;
       return {
         page,
         results: response.data.Search.map(formatOmdbMovie),
-        total_pages: Math.min(Math.ceil(total / 10), 10),
+        total_pages: 100, // Continuous endless scrolling
       };
     }
   } catch (err) {
@@ -63,7 +68,7 @@ export const searchMovies = async (query, page = 1) => {
       return {
         page,
         results: response.data.Search.map(formatOmdbMovie),
-        total_pages: Math.min(Math.ceil(total / 10), 5),
+        total_pages: Math.ceil(total / 10),
       };
     }
   } catch (err) {

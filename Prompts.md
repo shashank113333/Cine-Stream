@@ -27,11 +27,10 @@
 
 **Objective:** Allow users to discover films contextually using natural language and emotion strings (eg. *"Feeling sad but want high-octane action"*).
 **Prompt Formulation (FAQ #7):**
-  Suggest ONE movie based on this mood: "${moodText}". Return ONLY the movie title as a plaintext string, without any quotes, markdown or explanations.
+  Suggest ONE movie based on this mood: "${moodText}". Return ONLY the movie title as a plaintext string,without any quotes, markdown or explanations.
   
 **The Handoff Architecture:** The LLM's response is sanitized and passed into the movie search pipeline:
   "MoodMatcher -> getMovieFromMood -> searchMovies(cleanTitle) -> DOM Card Render".
-
 
 # 3. Debugging Log & Root Cause Analysis (RCA)
 
