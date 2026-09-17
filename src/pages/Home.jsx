@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { fetchPopularMovies, searchMovies } from '../api/tmdb';
 import { MovieGrid } from '../components/MovieGrid';
 import { SearchBar } from '../components/SearchBar';
